@@ -1,5 +1,6 @@
 module.exports = {
-	name: '8ball',
+    name: '8ball',
+    aliases: ['8orb'],
 	description: 'See what fate has in store...',
 	guildOnly: true,
 	execute(message) {

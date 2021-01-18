@@ -1,5 +1,14 @@
 {
     "token": "",
     "prefix": "!",
-    "serverid": ""
+    "myuserid":"",
+    "serverid": "",
+    "generalchannelid":"",
+    "colochannelid":"",
+    "squirmchannelid":"",
+    "raidchannelid":"",
+    "leaderchannelid":"",
+    "orbemojiid":"",
+    "remyemojiid":"",
+    "lammyemojiid":""
 }

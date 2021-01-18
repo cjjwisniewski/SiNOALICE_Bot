@@ -18,12 +18,6 @@ const cooldowns = new Discord.Collection();
 const fetch = require('node-fetch');
 const querystring = require('querystring');
 const trim = (str, max) => ((str.length > max) ? `${str.slice(0, max - 3)}...` : str);
-const myuserid = '130867632445325312';
-const generalchannelid = '742161769530785808';
-const colochannelid = '743254523254014035';
-const squirmchannelid = '775455677786882068';
-const raidchannelid = '775455710728159272';
-const serverid = '742161769530785804';
 
 //Load in command files
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -54,12 +48,16 @@ client.on('message', async message => {
 	//Add reactions
 	//Hansel/Brother react
 	//Orb react for Cardboard_box server
-	if(!(message.content.startsWith(prefix)) && !(message.author.bot) && (message.guild.id == serverid) && (message.content.toLowerCase().includes('orb'))) {
-		message.react('753619258189021234');
+	if(!(message.content.startsWith(prefix)) && !(message.author.bot) && (message.guild.id == config.serverid) && (message.content.toLowerCase().includes('orb'))) {
+		message.react(config.orbemojiid);
 	}
 	//Remy react for Cardboard_box server
-	if(!(message.content.startsWith(prefix)) && !(message.author.bot) && (message.guild.id == serverid) && (message.content.toLowerCase().includes('remy'))) {
-		message.react('🐶');
+	if(!(message.content.startsWith(prefix)) && !(message.author.bot) && (message.guild.id == config.serverid) && (message.content.toLowerCase().includes('remy'))) {
+		message.react(config.remyemojiid);
+	}
+	//Remy react for Cardboard_box server
+	if(!(message.content.startsWith(prefix)) && !(message.author.bot) && (message.guild.id == config.serverid) && (message.content.toLowerCase().includes('lammy'))) {
+		message.react(config.lammyemojiid);
 	}
 	
 	/*
@@ -106,7 +104,7 @@ client.on('message', async message => {
 
 	//Private Chat Functions
 	//Send
-	if(commandName === 'send' && message.author.id === myuserid) {
+	if(commandName === 'send' && message.author.id === config.myuserid) {
 		if (!args.length) {
 			return message.channel.send('Please provide arguments for ChannelID and message content.')
 		}
@@ -190,7 +188,7 @@ client.on('ready',async() => {
 			)
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 		
-		client.channels.cache.get(colochannelid).send(embed);
+		client.channels.cache.get(config.colochannelid).send(embed);
 	});
 	
 	//Conquest Timer 1
@@ -201,11 +199,12 @@ client.on('ready',async() => {
 				{ name: 'Conquest Notification', value: 'Don\'t worry Brother, I won\'t let that scary thing eat you!' },
 			)
 			//.setImage('https://i.imgur.com/hmSiobB.png') //Fafnir
-			.setImage('https://i.imgur.com/7h9MTPK.png') //Jormungandr
+			//.setImage('https://i.imgur.com/7h9MTPK.png') //Jormungandr
 			//.setImage('https://i.imgur.com/Olhsu5G.png') //Ogre
+			.setImage('https://i.imgur.com/XRRAUeD.png') //Rafflesia
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 		
-		client.channels.cache.get(raidchannelid).send(embed);
+		client.channels.cache.get(config.raidchannelid).send(embed);
 	});
 	//Conquest Timer 2
 	cron.schedule('0 12 * * *', () => {
@@ -215,13 +214,14 @@ client.on('ready',async() => {
 				{ name: 'Conquest Notification', value: 'Don\'t worry Brother, I won\'t let that scary thing eat you!' },
 			)
 			//.setImage('https://i.imgur.com/hmSiobB.png') //Fafnir
-			.setImage('https://i.imgur.com/7h9MTPK.png') //Jormungandr
+			//.setImage('https://i.imgur.com/7h9MTPK.png') //Jormungandr
 			//.setImage('https://i.imgur.com/Olhsu5G.png') //Ogre
+			.setImage('https://i.imgur.com/XRRAUeD.png') //Rafflesia
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 		
-		client.channels.cache.get(raidchannelid).send(embed);
+		client.channels.cache.get(config.raidchannelid).send(embed);
 	});
-
+	
 	//Squirm Timer
 	cron.schedule('30 0,2,11,18,20,22 * * *', () => {
 		const embed = new Discord.MessageEmbed()
@@ -232,7 +232,7 @@ client.on('ready',async() => {
 			.setImage('https://i.imgur.com/5NqgkOT.png')
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 		
-		client.channels.cache.get(squirmchannelid).send(embed);
+		client.channels.cache.get(config.squirmchannelid).send(embed);
 	});
 
 	//Daily Rollover Timer
@@ -245,97 +245,61 @@ client.on('ready',async() => {
 			.setImage('https://i.imgur.com/P1ON6tb.png')
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 	
-		client.channels.cache.get(generalchannelid).send(embed);
+		client.channels.cache.get(config.generalchannelid).send(embed);
 	});
 
 	//Event Schedule
-	//Sunday
-	cron.schedule('0 15 * * 0', () => {
+	cron.schedule('0 15 * * *', () => {
+		var events = [
+			'Evolution Mysteries - Wind, Secret to Riches', //Sunday
+			'Evolution Mysteries - Fire, Evolution Oddities - Armor', //Monday
+			'Evolution Mysteries - Water, Evolution Mysteries - Wind', //Tuesday
+			'Evolution Mysteries - Fire, Evolution Oddities - Armor', //Wednesday
+			'Evolution Mysteries -  Water, Secret to Riches', //Thursday
+			'Evolution Mysteries - Wind, Evolution Oddities - Armor, Secret to Riches', //Friday
+			'Evolution Mysteries - Fire, Evolution Mysteries - Water' //Saturday
+		]
+		
+		var date = new Date();
+
 		const embed = new Discord.MessageEmbed()
 		.setColor('#d3d3d3')
 		.addFields(
-			{ name: 'Daily Events Notification', value: 'Today\'s events are:\nEvolution Mysteries - Wind, Secret to Riches' },
+			{ name: 'Daily Events Notification', value: `Today\'s events are:\n${events[date.getDay()]}`},
 		)
 		.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 
-		client.channels.cache.get(generalchannelid).send(embed);
+		client.channels.cache.get(config.generalchannelid).send(embed);
 	});
-	//Monday
-	cron.schedule('0 15 * * 1', () => {
-		const embed = new Discord.MessageEmbed()
-		.setColor('#d3d3d3')
-		.addFields(
-			{ name: 'Daily Events Notification', value: 'Today\'s events are:\nEvolution Mysteries - Fire, Evolution Oddities - Armor' },
-		)
-		.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 
-		client.channels.cache.get(generalchannelid).send(embed);
-	});
-	//Tuesday
-	cron.schedule('0 15 * * 2', () => {
-		const embed = new Discord.MessageEmbed()
-		.setColor('#d3d3d3')
-		.addFields(
-			{ name: 'Daily Events Notification', value: 'Today\'s events are:\nEvolution Mysteries - Water, Evolution Mysteries - Wind' },
-		)
-		.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
-
-		client.channels.cache.get(generalchannelid).send(embed);
-	});
-	//Wednesday
-	cron.schedule('0 15 * * 3', () => {
-		const embed = new Discord.MessageEmbed()
-		.setColor('#d3d3d3')
-		.addFields(
-			{ name: 'Daily Events Notification', value: 'Today\'s events are:\nEvolution Mysteries - Fire, Evolution Oddities - Armor' },
-		)
-		.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
-
-		client.channels.cache.get(generalchannelid).send(embed);
-	});
-	//Thursday
-	cron.schedule('0 15 * * 4', () => {
-		const embed = new Discord.MessageEmbed()
-		.setColor('#d3d3d3')
-		.addFields(
-			{ name: 'Daily Events Notification', value: 'Today\'s events are:\nEvolution Mysteries -  Water, Secret to Riches' },
-		)
-		.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
-
-		client.channels.cache.get(generalchannelid).send(embed);
-	});
-	//Friday
-	cron.schedule('0 15 * * 5', () => {
-		const embed = new Discord.MessageEmbed()
-		.setColor('#d3d3d3')
-		.addFields(
-			{ name: 'Daily Events Notification', value: 'Today\'s events are:\nEvolution Mysteries - Wind, Evolution Oddities - Armor, Secret to Riches' },
-		)
-		.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
-
-		client.channels.cache.get(generalchannelid).send(embed);
-	});
-	//Saturday
-	cron.schedule('0 15 * * 6', () => {
-		const embed = new Discord.MessageEmbed()
-		.setColor('#d3d3d3')
-		.addFields(
-			{ name: 'Daily Events Notification', value: 'Today\'s events are:\nEvolution Mysteries - Fire, Evolution Mysteries - Water' },
-		)
-		.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
-
-		client.channels.cache.get(generalchannelid).send(embed);
-	});
 });
 
 //Welcome message
 client.on('guildMemberAdd', member => {
+	var welcomeMessages = [
+		`Brother... Did ${member.name} follow our trail of breadcrumbs to get here?`,
+		`Did you get lost in the woods too, ${member.name}? Can you help me find my Brother?`,
+		`Are you feeling hungry, ${member.name}? By the smell of the oven, dinner's almost done!`
+	]
 
+	var randomNumber = Math.floor(Math.random()*welcomeMessages.length);
+
+	const embed = new Discord.MessageEmbed()
+		.setColor('#ffffff')
+		.addFields(
+			{ name: 'Welcome!', value: `${welcomeMessages[randomNumber]}` },
+		)
+		.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
+	
+	client.channels.cache.get(config.generalchannelid).send(embed);
+
+	//Add Friend role
+	member.roles.add('767853184059965522');
 });
 
 //Leave message
 client.on('guildMemberRemove', member => {
-	
+	client.channel.cache.get(config.leaderchannelid).send(`${member.name} left the server.`)
 });
 
 //Log into Discord service using bot token
