@@ -192,7 +192,7 @@ client.on('ready',async() => {
 	});
 	
 	//Conquest Timer 1
-	cron.schedule('30 0,2,4,9,12,16,18,20,22 * * *', () => {
+	cron.schedule('30 1,3,11,13,15,17,19,21,23 * * *', () => {
 		const embed = new Discord.MessageEmbed()
 			.setColor('#006400')
 			.addFields(
@@ -209,7 +209,7 @@ client.on('ready',async() => {
 	});
 	
 	//Squirm Timer
-	cron.schedule('30 1,3,11,13,15,17,19,21,23 * * *', () => {
+	cron.schedule('30 0,2,4,9,12,16,18,20,22 * * *', () => {
 		const embed = new Discord.MessageEmbed()
 			.setColor('#e25822')
 			.addFields(
