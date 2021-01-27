@@ -180,7 +180,7 @@ client.on('message', async message => {
 //Scheduled Functions
 client.on('ready',async() => {
 	//Colosseum Timer
-	cron.schedule('40 0 * * *', () => {
+	cron.schedule('40 2 * * *', () => {
 		const embed = new Discord.MessageEmbed()
 			.setColor('#8B0000')
 			.addFields(
@@ -192,7 +192,7 @@ client.on('ready',async() => {
 	});
 	
 	//Conquest Timer 1
-	cron.schedule('30 1,3,19,21,23 * * *', () => {
+	cron.schedule('30 0,2,4,9,12,16,18,20,22 * * *', () => {
 		const embed = new Discord.MessageEmbed()
 			.setColor('#006400')
 			.addFields(
@@ -201,29 +201,15 @@ client.on('ready',async() => {
 			//.setImage('https://i.imgur.com/hmSiobB.png') //Fafnir
 			//.setImage('https://i.imgur.com/7h9MTPK.png') //Jormungandr
 			//.setImage('https://i.imgur.com/Olhsu5G.png') //Ogre
-			.setImage('https://i.imgur.com/XRRAUeD.png') //Rafflesia
-			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
-		
-		client.channels.cache.get(config.raidchannelid).send(embed);
-	});
-	//Conquest Timer 2
-	cron.schedule('0 12 * * *', () => {
-		const embed = new Discord.MessageEmbed()
-			.setColor('#006400')
-			.addFields(
-				{ name: 'Conquest Notification', value: 'Don\'t worry Brother, I won\'t let that scary thing eat you!' },
-			)
-			//.setImage('https://i.imgur.com/hmSiobB.png') //Fafnir
-			//.setImage('https://i.imgur.com/7h9MTPK.png') //Jormungandr
-			//.setImage('https://i.imgur.com/Olhsu5G.png') //Ogre
-			.setImage('https://i.imgur.com/XRRAUeD.png') //Rafflesia
+			//.setImage('https://i.imgur.com/XRRAUeD.png') //Rafflesia
+			.setImage('https://i.imgur.com/gUnyHT3.png') //Surtr
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 		
 		client.channels.cache.get(config.raidchannelid).send(embed);
 	});
 	
 	//Squirm Timer
-	cron.schedule('30 0,2,11,18,20,22 * * *', () => {
+	cron.schedule('30 1,3,11,13,15,17,19,21,23 * * *', () => {
 		const embed = new Discord.MessageEmbed()
 			.setColor('#e25822')
 			.addFields(
