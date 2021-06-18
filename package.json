@@ -1,0 +1,27 @@
+{
+  "name": "gretel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "node-cron": "^2.0.3",
+    "node-fetch": "^2.6.1",
+    "require.async": "^0.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjjwisniewski/SiNOALICE_Bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjjwisniewski/SiNOALICE_Bot/issues"
+  },
+  "homepage": "https://github.com/cjjwisniewski/SiNOALICE_Bot#readme"
+}

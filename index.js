@@ -47,15 +47,15 @@ client.on('message', async message => {
 	//Add reactions
 	//Hansel/Brother react
 	//Orb react for Cardboard_box server
-	if(!(message.content.startsWith(prefix)) && !(message.author.bot) && (message.guild.id == config.serverid) && (message.content.toLowerCase().includes('orb'))) {
+	if(!(message.content.startsWith(prefix)) && !(message.author.bot) && (message.guild.id == config.cardboardserverid) && (message.content.toLowerCase().includes('orb'))) {
 		message.react(config.orbemojiid);
 	}
 	//Remy react for Cardboard_box server
-	if(!(message.content.startsWith(prefix)) && !(message.author.bot) && (message.guild.id == config.serverid) && (message.content.toLowerCase().includes('remy'))) {
+	if(!(message.content.startsWith(prefix)) && !(message.author.bot) && (message.guild.id == config.cardboardserverid) && (message.content.toLowerCase().includes('remy'))) {
 		message.react(config.remyemojiid);
 	}
 	//Remy react for Cardboard_box server
-	if(!(message.content.startsWith(prefix)) && !(message.author.bot) && (message.guild.id == config.serverid) && (message.content.toLowerCase().includes('lammy'))) {
+	if(!(message.content.startsWith(prefix)) && !(message.author.bot) && (message.guild.id == config.cardboardserverid) && (message.content.toLowerCase().includes('lammy'))) {
 		message.react(config.lammyemojiid);
 	}
 	
@@ -184,32 +184,93 @@ client.on('ready',async() => {
 		const embed = new Discord.MessageEmbed()
 			.setColor('#8B0000')
 			.addFields(
-				{ name: 'It\'s time for colosseum!', value: 'I wonder if these people will all fit into the oven... What do you think, @everyone?' },
+				{ name: 'It\'s time for colosseum!', value: 'I wonder if these people will all fit into the oven... What do you think, @here?' },
 			)
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 		
-		client.channels.cache.get(config.colochannelid).send(embed);
+		client.channels.cache.get(config.cardboardcolochannelid).send(embed);
+		//client.channels.cache.get(config.cirquecolochannelid).send(embed);
 	});
 	*/
 	
-	//Conquest Timer 
+	//Conquest Timer
+	//Cardboard_Box
 	cron.schedule('30 1,3,8,11,15,17,19,21,23 * * *', () => {
 		const embed = new Discord.MessageEmbed()
 			.setColor('#006400')
 			.addFields(
 				{ name: 'Conquest Notification', value: 'Don\'t worry Brother, I won\'t let that scary thing eat you!' },
 			)
+			//.setImage('https://i.imgur.com/7h9MTPK.png') //Jormungandr
 			//.setImage('https://i.imgur.com/hmSiobB.png') //Fafnir
-			.setImage('https://i.imgur.com/7h9MTPK.png') //Jormungandr
 			//.setImage('https://i.imgur.com/Olhsu5G.png') //Ogre
+			//.setImage('https://i.imgur.com/Eu0THEh.png') //Fenrir
 			//.setImage('https://i.imgur.com/XRRAUeD.png') //Rafflesia
 			//.setImage('https://i.imgur.com/gUnyHT3.png') //Surtr
 			//.setImage('https://i.imgur.com/GtDRG55.png') //Crystal Wisp
+			//.setImage('https://i.imgur.com/dGFdoO4.png') //Belial
+			//.setImage('https://i.imgur.com/0xJllir.png') //Slade
+			//.setImage('https://i.imgur.com/JIgJvBN.png') //Grief Spider
+			//.setImage('https://i.imgur.com/5mwUIps.png') //Gremlin
+			//.setImage('https://i.imgur.com/VDstV2B.png') //Ajatar
+			//.setImage('https://i.imgur.com/p40dorp.png') //Lurker in the Waves
+			.setImage('https://i.imgur.com/t1CnUDq.png') //Basilisk
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 		
-		client.channels.cache.get(config.raidchannelid).send(embed);
+		client.channels.cache.get(config.cardboardraidchannelid).send(embed);
 	});
-	
+	//Cirque
+	cron.schedule('30 1,3,8,11,15,17,19,21,23 * * *', () => {
+		const embed = new Discord.MessageEmbed()
+			.setColor('#006400')
+			.addFields(
+				{ name: 'Conquest Notification', value: 'Don\'t worry Brother, I won\'t let that scary thing eat you!' },
+			)
+			//.setImage('https://i.imgur.com/7h9MTPK.png') //Jormungandr
+			//.setImage('https://i.imgur.com/hmSiobB.png') //Fafnir
+			//.setImage('https://i.imgur.com/Olhsu5G.png') //Ogre
+			//.setImage('https://i.imgur.com/Eu0THEh.png') //Fenrir
+			//.setImage('https://i.imgur.com/XRRAUeD.png') //Rafflesia
+			//.setImage('https://i.imgur.com/gUnyHT3.png') //Surtr
+			//.setImage('https://i.imgur.com/GtDRG55.png') //Crystal Wisp
+			//.setImage('https://i.imgur.com/dGFdoO4.png') //Belial
+			//.setImage('https://i.imgur.com/0xJllir.png') //Slade
+			//.setImage('https://i.imgur.com/JIgJvBN.png') //Grief Spider
+			//.setImage('https://i.imgur.com/5mwUIps.png') //Gremlin
+			//.setImage('https://i.imgur.com/VDstV2B.png') //Ajatar
+			//.setImage('https://i.imgur.com/p40dorp.png') //Lurker in the Waves
+			.setImage('https://i.imgur.com/t1CnUDq.png') //Basilisk
+			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
+		
+		client.channels.cache.get(config.cirqueraidchannelid).send('<@&770350719768854548>');
+		client.channels.cache.get(config.cirqueraidchannelid).send(embed);
+	});
+	//Wataboutmi
+	cron.schedule('30 1,3,8,11,15,17,19,21,23 * * *', () => {
+		const embed = new Discord.MessageEmbed()
+			.setColor('#006400')
+			.addFields(
+				{ name: 'Conquest Notification', value: 'Don\'t worry Brother, I won\'t let that scary thing eat you!' },
+			)
+			//.setImage('https://i.imgur.com/7h9MTPK.png') //Jormungandr
+			//.setImage('https://i.imgur.com/hmSiobB.png') //Fafnir
+			//.setImage('https://i.imgur.com/Olhsu5G.png') //Ogre
+			//.setImage('https://i.imgur.com/Eu0THEh.png') //Fenrir
+			//.setImage('https://i.imgur.com/XRRAUeD.png') //Rafflesia
+			//.setImage('https://i.imgur.com/gUnyHT3.png') //Surtr
+			//.setImage('https://i.imgur.com/GtDRG55.png') //Crystal Wisp
+			//.setImage('https://i.imgur.com/dGFdoO4.png') //Belial
+			//.setImage('https://i.imgur.com/0xJllir.png') //Slade
+			//.setImage('https://i.imgur.com/JIgJvBN.png') //Grief Spider
+			//.setImage('https://i.imgur.com/5mwUIps.png') //Gremlin
+			//.setImage('https://i.imgur.com/VDstV2B.png') //Ajatar
+			//.setImage('https://i.imgur.com/p40dorp.png') //Lurker in the Waves
+			.setImage('https://i.imgur.com/t1CnUDq.png') //Basilisk
+			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
+		
+		client.channels.cache.get(config.wataboutmiraidchannelid).send('<@&852799764772814920>');
+		client.channels.cache.get(config.wataboutmiraidchannelid).send(embed);
+	});
 	//Squirm Timer
 	cron.schedule('30 0,2,10,12,14,16,18,20,22 * * *', () => {
 		const embed = new Discord.MessageEmbed()
@@ -217,10 +278,12 @@ client.on('ready',async() => {
 			.addFields(
 				{ name: 'Guerilla Notification', value: 'Swords and shields? Can we use those to bake a pie, Brother?' },
 			)
-			.setImage('https://i.imgur.com/5NqgkOT.png')
+			.setImage('https://i.imgur.com/3r9elIW.png')
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 		
-		client.channels.cache.get(config.squirmchannelid).send(embed);
+		client.channels.cache.get(config.cardboardsquirmchannelid).send(embed);
+		client.channels.cache.get(config.cirquesquirmchannelid).send(embed);
+		client.channels.cache.get(config.wataboutmisquirmchannelid).send(embed);
 	});
 
 	//Daily Rollover Timer
@@ -233,7 +296,7 @@ client.on('ready',async() => {
 			.setImage('https://i.imgur.com/P1ON6tb.png')
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 	
-		client.channels.cache.get(config.generalchannelid).send(embed);
+		client.channels.cache.get(config.cardboardgeneralchannelid).send(embed);
 	});
 
 	//Event Schedule
@@ -243,7 +306,7 @@ client.on('ready',async() => {
 			'Evolution Mysteries - Fire, Evolution Oddities - Armor', //Monday
 			'Evolution Mysteries - Water, Evolution Mysteries - Wind', //Tuesday
 			'Evolution Mysteries - Fire, Evolution Oddities - Armor', //Wednesday
-			'Evolution Mysteries -  Water, Secret to Riches', //Thursday
+			'Evolution Mysteries - Water, Secret to Riches', //Thursday
 			'Evolution Mysteries - Wind, Evolution Oddities - Armor, Secret to Riches', //Friday
 			'Evolution Mysteries - Fire, Evolution Mysteries - Water' //Saturday
 		]
@@ -257,11 +320,12 @@ client.on('ready',async() => {
 		)
 		.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 
-		client.channels.cache.get(config.generalchannelid).send(embed);
+		client.channels.cache.get(config.cardboardgeneralchannelid).send(embed);
 	});
 
 });
 
+/*
 //Welcome message
 client.on('guildMemberAdd', member => {
 	var welcomeMessages = [
@@ -289,6 +353,7 @@ client.on('guildMemberAdd', member => {
 client.on('guildMemberRemove', member => {
 	client.channel.cache.get(config.leaderchannelid).send(`${member.name} left the server.`)
 });
+*/
 
 //Log into Discord service using bot token
 client.login(token);
