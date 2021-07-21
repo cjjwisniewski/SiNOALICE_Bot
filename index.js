@@ -192,7 +192,7 @@ client.on('ready',async() => {
 		//client.channels.cache.get(config.cirquecolochannelid).send(embed);
 	});
 	*/
-	
+
 	//Conquest Timer
 	//Cardboard_Box
 	cron.schedule('30 1,3,8,11,15,17,19,21,23 * * *', () => {
@@ -205,6 +205,7 @@ client.on('ready',async() => {
 			//.setImage('https://i.imgur.com/hmSiobB.png') //Fafnir
 			//.setImage('https://i.imgur.com/Olhsu5G.png') //Ogre
 			//.setImage('https://i.imgur.com/Eu0THEh.png') //Fenrir
+			//.setImage('https://i.imgur.com/E2Hr551.png') //Ziz
 			//.setImage('https://i.imgur.com/XRRAUeD.png') //Rafflesia
 			//.setImage('https://i.imgur.com/gUnyHT3.png') //Surtr
 			//.setImage('https://i.imgur.com/GtDRG55.png') //Crystal Wisp
@@ -214,7 +215,8 @@ client.on('ready',async() => {
 			//.setImage('https://i.imgur.com/5mwUIps.png') //Gremlin
 			//.setImage('https://i.imgur.com/VDstV2B.png') //Ajatar
 			//.setImage('https://i.imgur.com/p40dorp.png') //Lurker in the Waves
-			.setImage('https://i.imgur.com/t1CnUDq.png') //Basilisk
+			//.setImage('https://i.imgur.com/t1CnUDq.png') //Basilisk
+			.setImage('https://i.imgur.com/B5ksBGR.png') //Cerberus
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 		
 		client.channels.cache.get(config.cardboardraidchannelid).send(embed);
@@ -230,6 +232,7 @@ client.on('ready',async() => {
 			//.setImage('https://i.imgur.com/hmSiobB.png') //Fafnir
 			//.setImage('https://i.imgur.com/Olhsu5G.png') //Ogre
 			//.setImage('https://i.imgur.com/Eu0THEh.png') //Fenrir
+			//.setImage('https://i.imgur.com/E2Hr551.png') //Ziz
 			//.setImage('https://i.imgur.com/XRRAUeD.png') //Rafflesia
 			//.setImage('https://i.imgur.com/gUnyHT3.png') //Surtr
 			//.setImage('https://i.imgur.com/GtDRG55.png') //Crystal Wisp
@@ -239,7 +242,8 @@ client.on('ready',async() => {
 			//.setImage('https://i.imgur.com/5mwUIps.png') //Gremlin
 			//.setImage('https://i.imgur.com/VDstV2B.png') //Ajatar
 			//.setImage('https://i.imgur.com/p40dorp.png') //Lurker in the Waves
-			.setImage('https://i.imgur.com/t1CnUDq.png') //Basilisk
+			//.setImage('https://i.imgur.com/t1CnUDq.png') //Basilisk
+			.setImage('https://i.imgur.com/B5ksBGR.png') //Cerberus
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 		
 		client.channels.cache.get(config.cirqueraidchannelid).send('<@&770350719768854548>');
@@ -256,6 +260,7 @@ client.on('ready',async() => {
 			//.setImage('https://i.imgur.com/hmSiobB.png') //Fafnir
 			//.setImage('https://i.imgur.com/Olhsu5G.png') //Ogre
 			//.setImage('https://i.imgur.com/Eu0THEh.png') //Fenrir
+			//.setImage('https://i.imgur.com/E2Hr551.png') //Ziz
 			//.setImage('https://i.imgur.com/XRRAUeD.png') //Rafflesia
 			//.setImage('https://i.imgur.com/gUnyHT3.png') //Surtr
 			//.setImage('https://i.imgur.com/GtDRG55.png') //Crystal Wisp
@@ -265,12 +270,15 @@ client.on('ready',async() => {
 			//.setImage('https://i.imgur.com/5mwUIps.png') //Gremlin
 			//.setImage('https://i.imgur.com/VDstV2B.png') //Ajatar
 			//.setImage('https://i.imgur.com/p40dorp.png') //Lurker in the Waves
-			.setImage('https://i.imgur.com/t1CnUDq.png') //Basilisk
+			//.setImage('https://i.imgur.com/t1CnUDq.png') //Basilisk
+			.setImage('https://i.imgur.com/B5ksBGR.png') //Cerberus
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 		
 		client.channels.cache.get(config.wataboutmiraidchannelid).send('<@&852799764772814920>');
 		client.channels.cache.get(config.wataboutmiraidchannelid).send(embed);
 	});
+
+
 	//Squirm Timer
 	cron.schedule('30 0,2,10,12,14,16,18,20,22 * * *', () => {
 		const embed = new Discord.MessageEmbed()
