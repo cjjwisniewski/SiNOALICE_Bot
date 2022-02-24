@@ -189,7 +189,6 @@ client.on('ready',async() => {
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 		
 		client.channels.cache.get(config.cardboardcolochannelid).send(embed);
-		//client.channels.cache.get(config.cirquecolochannelid).send(embed);
 	});
 	*/
 
@@ -216,68 +215,13 @@ client.on('ready',async() => {
 			//.setImage('https://i.imgur.com/VDstV2B.png') //Ajatar
 			//.setImage('https://i.imgur.com/p40dorp.png') //Lurker in the Waves
 			//.setImage('https://i.imgur.com/t1CnUDq.png') //Basilisk
-			.setImage('https://i.imgur.com/B5ksBGR.png') //Cerberus
+			//.setImage('https://i.imgur.com/B5ksBGR.png') //Cerberus
+			//.setImage('https://i.imgur.com/E8KioY6.png') //Seere
+			.setImage('https://i.imgur.com/gnI0318.png') //Belladonna
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 		
 		client.channels.cache.get(config.cardboardraidchannelid).send(embed);
 	});
-	//Cirque
-	cron.schedule('30 1,3,8,11,15,17,19,21,23 * * *', () => {
-		const embed = new Discord.MessageEmbed()
-			.setColor('#006400')
-			.addFields(
-				{ name: 'Conquest Notification', value: 'Don\'t worry Brother, I won\'t let that scary thing eat you!' },
-			)
-			//.setImage('https://i.imgur.com/7h9MTPK.png') //Jormungandr
-			//.setImage('https://i.imgur.com/hmSiobB.png') //Fafnir
-			//.setImage('https://i.imgur.com/Olhsu5G.png') //Ogre
-			//.setImage('https://i.imgur.com/Eu0THEh.png') //Fenrir
-			//.setImage('https://i.imgur.com/E2Hr551.png') //Ziz
-			//.setImage('https://i.imgur.com/XRRAUeD.png') //Rafflesia
-			//.setImage('https://i.imgur.com/gUnyHT3.png') //Surtr
-			//.setImage('https://i.imgur.com/GtDRG55.png') //Crystal Wisp
-			//.setImage('https://i.imgur.com/dGFdoO4.png') //Belial
-			//.setImage('https://i.imgur.com/0xJllir.png') //Slade
-			//.setImage('https://i.imgur.com/JIgJvBN.png') //Grief Spider
-			//.setImage('https://i.imgur.com/5mwUIps.png') //Gremlin
-			//.setImage('https://i.imgur.com/VDstV2B.png') //Ajatar
-			//.setImage('https://i.imgur.com/p40dorp.png') //Lurker in the Waves
-			//.setImage('https://i.imgur.com/t1CnUDq.png') //Basilisk
-			.setImage('https://i.imgur.com/B5ksBGR.png') //Cerberus
-			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
-		
-		client.channels.cache.get(config.cirqueraidchannelid).send('<@&770350719768854548>');
-		client.channels.cache.get(config.cirqueraidchannelid).send(embed);
-	});
-	//Wataboutmi
-	cron.schedule('30 1,3,8,11,15,17,19,21,23 * * *', () => {
-		const embed = new Discord.MessageEmbed()
-			.setColor('#006400')
-			.addFields(
-				{ name: 'Conquest Notification', value: 'Don\'t worry Brother, I won\'t let that scary thing eat you!' },
-			)
-			//.setImage('https://i.imgur.com/7h9MTPK.png') //Jormungandr
-			//.setImage('https://i.imgur.com/hmSiobB.png') //Fafnir
-			//.setImage('https://i.imgur.com/Olhsu5G.png') //Ogre
-			//.setImage('https://i.imgur.com/Eu0THEh.png') //Fenrir
-			//.setImage('https://i.imgur.com/E2Hr551.png') //Ziz
-			//.setImage('https://i.imgur.com/XRRAUeD.png') //Rafflesia
-			//.setImage('https://i.imgur.com/gUnyHT3.png') //Surtr
-			//.setImage('https://i.imgur.com/GtDRG55.png') //Crystal Wisp
-			//.setImage('https://i.imgur.com/dGFdoO4.png') //Belial
-			//.setImage('https://i.imgur.com/0xJllir.png') //Slade
-			//.setImage('https://i.imgur.com/JIgJvBN.png') //Grief Spider
-			//.setImage('https://i.imgur.com/5mwUIps.png') //Gremlin
-			//.setImage('https://i.imgur.com/VDstV2B.png') //Ajatar
-			//.setImage('https://i.imgur.com/p40dorp.png') //Lurker in the Waves
-			//.setImage('https://i.imgur.com/t1CnUDq.png') //Basilisk
-			.setImage('https://i.imgur.com/B5ksBGR.png') //Cerberus
-			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
-		
-		client.channels.cache.get(config.wataboutmiraidchannelid).send('<@&852799764772814920>');
-		client.channels.cache.get(config.wataboutmiraidchannelid).send(embed);
-	});
-
 
 	//Squirm Timer
 	cron.schedule('30 0,2,10,12,14,16,18,20,22 * * *', () => {
@@ -290,8 +234,6 @@ client.on('ready',async() => {
 			.setFooter('Undo', 'https://i.imgur.com/2WLV7km.png');
 		
 		client.channels.cache.get(config.cardboardsquirmchannelid).send(embed);
-		client.channels.cache.get(config.cirquesquirmchannelid).send(embed);
-		client.channels.cache.get(config.wataboutmisquirmchannelid).send(embed);
 	});
 
 	//Daily Rollover Timer
